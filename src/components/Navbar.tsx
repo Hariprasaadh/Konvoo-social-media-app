@@ -2,9 +2,14 @@ import Link from 'next/link'
 import React from 'react'
 import DesktopNavbar from '@/components/DesktopNavbar'
 import MobileNavbar from '@/components/MobileNavbar'
+import { currentUser } from '@clerk/nextjs/server'
+import {syncUser} from '@/actions/user.action'
 
 
-const Navbar = () => {
+const Navbar = async () => {
+  const user = await currentUser();
+  if(user) await syncUser();  // POST request
+
   return (
     <nav className='navbar'>
         <div className='max-w-7xl  mx-auto px-4'>
