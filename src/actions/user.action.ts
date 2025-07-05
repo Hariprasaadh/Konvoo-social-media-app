@@ -55,3 +55,18 @@ export async function getUserByClerkId(clerkId: string){
         }
     })
 }
+
+
+// Find DB user id using clerk id
+export async function getDBUserId(){
+    const {userId:clerkId} = await auth();  // Rename object while destructuring
+    
+    if(!clerkId) throw new Error("Unauthorized");
+
+    const user = await getUserByClerkId(clerkId);
+
+    if(!user) throw new Error("User not found");
+
+    return user.id
+}
+
