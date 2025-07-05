@@ -62,7 +62,7 @@ export async function getUserByClerkId(clerkId: string){
 export async function getDBUserId(){
     const {userId:clerkId} = await auth();  // Rename object while destructuring
     
-    if(!clerkId) throw new Error("Unauthorized");
+    if(!clerkId) return null;
 
     const user = await getUserByClerkId(clerkId);
 
