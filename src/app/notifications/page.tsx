@@ -31,6 +31,7 @@ const Page = () => {
   const [notifications,setNotifications] = useState<Notification[]>([]);  // array of notifications
   const [isLoading,setIsLoading]=useState(true);
 
+  // mark the notifications as read behind the scene when user visits the notification page    
   useEffect(()=>{
     const fetchNotifications = async() => {
         setIsLoading(true);
