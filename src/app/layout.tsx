@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ThemeProvider"
 import Navbar from "@/components/Navbar";
-
+import Sidebar from "@/components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,7 +47,7 @@ export default function RootLayout({
                 <div className="max-w-7xl mx-auto px-4"> 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6"> {/* Divided into total 12 parts for larger screen*/}
                     <div className="hidden lg:block lg: col-span-3">  {/* First 3 parts for sidebar */}
-                      sidebar
+                      <Sidebar />
                     </div>
                     <div className="lg:col-span-9"> {/* Remaining 9 parts for posts content */}
                       {children}
