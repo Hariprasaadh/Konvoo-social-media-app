@@ -1,5 +1,6 @@
 import CreatePost from "@/components/CreatePost"
 import { currentUser } from "@clerk/nextjs/server"
+import WhoToFollow from "@/components/WhoToFollow";
 
 const page = async () => {
 
@@ -12,7 +13,7 @@ const page = async () => {
       </div>
 
       <div className="hidden lg:block lg:col-span-4 sticky top-20">  {/* 4 parts for follow suggestions */}
-          WhoToFollow
+          <WhoToFollow />
       </div>
 
     </div>
