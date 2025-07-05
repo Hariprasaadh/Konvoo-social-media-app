@@ -74,6 +74,7 @@ export async function getDBUserId(){
 export async function getRandomUsers(){
     try{
         const userId = await getDBUserId();
+        if(!userId) return;
 
         // get 3 random users exclude ourselves & users that we already follow
         const randomUsers = await prisma.user.findMany({
@@ -115,6 +116,7 @@ export async function toggleFollow(targetUserId:string){
     try{
 
         const userId = await getDBUserId();
+        if(!userId) return;
         if(userId === targetUserId) throw new Error("You cannot follow yourself");
 
         const existingFollow = await prisma.follows.findUnique({
