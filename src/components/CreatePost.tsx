@@ -17,7 +17,7 @@ const CreatePost = () => {
   const [content,setContent] = useState("");
   const [imageUrl,setImageUrl] = useState("");
   const [isPosting,setIsPosting] = useState(false);  // to show a spinner while posting
-  const [showImageUpload, setshowImageUpload] = useState(false); // show image upload if uploading 
+  const [showImageUpload, setShowImageUpload] = useState(false); // show image upload if uploading 
 
   const handleSubmit = async () => {
     if(!content.trim() && !imageUrl) return
@@ -29,7 +29,7 @@ const CreatePost = () => {
             //reset the form
             setContent("");
             setImageUrl("");
-            setshowImageUpload(false);
+            setShowImageUpload(false);
             toast.success("Post created successfully");
         }
     }catch (error) {
