@@ -29,6 +29,8 @@ const page = async ({params} :{params: {username: string }}) => {
     isFollowing(user.id),
   ])
 
+  // Get all the data and send it to the client to have interactivity.
+
   return (
     <ProfilePageClient user={user} posts={posts} likedPosts={likedPosts} isFollowing={isCurrentUserFollowing}/>
   )
